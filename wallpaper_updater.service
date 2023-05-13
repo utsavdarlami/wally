@@ -1,0 +1,16 @@
+[Unit]
+Description=Wallpaper Updater Service
+After=network.target
+
+[Service]
+User=felladog
+Type=simple
+ExecStart=/usr/bin/python /home/felladog/Desktop/Workspace/wallpaper_updater/main.py
+WorkingDirectory=/home/felladog/Desktop/Workspace/wallpaper_updater
+Restart=on-failure
+RestartSec=10
+SuccessExitStatus=15
+
+[Install]
+WantedBy=default.target
+

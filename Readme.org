@@ -1,0 +1,69 @@
+#+TITLE: Readme 
+* Wallpaper updater
+
+Wallpaper Updater is a Python script that reads text from a file and adds the text to an image. The resulting image is then set as the wallpaper. The script can be run as a daemon service, so that the wallpaper is updated automatically when the text file is saved.
+
+* Prerequisites
+
+- Python 3.10.1
+- systemd (for running the script as a daemon service)
+
+* Installation
+
+1. Install Python 3.6 or higher, if not already installed.
+
+2. Clone this repository to your local machine:
+
+   #+BEGIN_SRC sh
+   git clone https://github.com/<your_username>/wallpaper-updater.git
+   #+END_SRC
+
+3. Navigate to the `wallpaper-updater` directory:
+
+   #+BEGIN_SRC sh
+   cd wallpaper-updater
+   #+END_SRC
+
+4. Install the package using pip from requirements.txt:
+
+   #+BEGIN_SRC sh
+   pip install -r requirements.txt 
+   #+END_SRC
+
+
+5. Edit the `config.ini` file to specify the path to the text file and the image file, and other settings as needed.
+
+6. If you want to run the script as a daemon service, copy the `wallpaper_updater.service` file to `/usr/local/lib/systemd/user/` and run the following commands:
+
+   #+BEGIN_SRC sh
+   sudo systemctl daemon-reload
+   sudo systemctl start wallpaper_updater
+   sudo systemctl enable wallpaper_updater
+   #+END_SRC
+
+* Usage
+
+To run the script manually, simply run the following command:
+
+#+BEGIN_SRC sh
+python wallpaper_updater.py
+#+END_SRC
+
+If you have set up the script as a daemon service, it will run automatically in the background.
+
+* Configuration
+
+The `config.ini` file contains the following settings:
+
+- `text_file`: the path to the text file.
+- `image_file`: the path to the image file.
+- `font_file`: the path to the font file (optional).
+- `font_size`: the size of the font (optional).
+- `font_color`: the color of the text (optional).
+
+You can customize these settings to your liking.
+
+* Acknowledgments
+
+This project was created with the help of ChatGPT, a language model trained by OpenAI.
+Even this Readme.
