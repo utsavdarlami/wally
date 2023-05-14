@@ -16,6 +16,7 @@ class WallpaperUpdater(FileSystemEventHandler):
         self,
         text_file_path: str,
         image_path: str,
+        base_path: str,
         font_type: str,
         font_size: int,
         font_color: str,
@@ -23,6 +24,7 @@ class WallpaperUpdater(FileSystemEventHandler):
     ):
         self.text_file_path = text_file_path
         self.ground_wallpaper = image_path
+        self.base_path = base_path
         self.font_type = font_type
         self.font_size = font_size
         self.font_color = font_color
@@ -65,7 +67,7 @@ class WallpaperUpdater(FileSystemEventHandler):
         image = Image.open(self.ground_wallpaper)
         image = self.write_text(text, image)
         # save the image
-        image_path = os.path.join(os.getcwd(), "output_image.jpg")
+        image_path = os.path.join(self.base_path, "output_image.jpg")
         image.save(image_path)
 
         # set the wallpaper
@@ -74,22 +76,28 @@ class WallpaperUpdater(FileSystemEventHandler):
 
 
 if __name__ == "__main__":
+    logger.info(f"Running the wallpaper updater.")
     config = configparser.ConfigParser()
-    config.read("config.ini")
+    base_path = os.path.abspath(os.path.dirname(__file__))
+    config_path = os.path.join(base_path, "config.ini")
+    logger.info(f"reading config from {config_path}")
+    config.read(config_path)
     text_file = config.get("Settings", "text_file")
     image_file = config.get("Settings", "image_file")
     font_file = config.get("Settings", "font_file")
     font_size = config.getint("Settings", "font_size")
     font_color = config.get("Settings", "font_color")
-
-    text_file_path = os.path.join(os.getcwd(), text_file)
-    image_path = image_file
+    text_file_path = os.path.join(base_path, text_file)
+    image_path = os.path.join(base_path, image_file)
+    font_file_path = os.path.join(base_path, font_file)
     # initial update of the wallpaper
-    logger.info(f"Running the wallpaper updater {text_file_path} {image_path}.")
+    logger.info(f"Text file path -> {text_file_path}.")
+    logger.info(f"Image file path -> {image_path}.")
     updater = WallpaperUpdater(
         text_file_path,
         image_path,
-        font_type=font_file,
+        base_path=base_path,
+        font_type=font_file_path,
         font_size=font_size,
         font_color=font_color,
     )

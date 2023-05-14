@@ -1,4 +1,2 @@
-task 
-- Complete Vocab Section by sunday 
-- Dummy hi, from code hi
-- asdsaj,wk
+Task 
+- Dummy hi
