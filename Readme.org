@@ -1,7 +1,6 @@
 #+TITLE: Readme 
-* Wallpaper updater
 
-Wallpaper Updater is a Python script that reads text from a file and adds the text to an image. The resulting image is then set as the wallpaper. The script can be run as a daemon service, so that the wallpaper is updated automatically when the text file is saved.
+wally is a Python script that reads text from a file and adds the text to an image. The resulting image is then set as the wallpaper. The script can be run as a daemon service, so that the wallpaper is updated automatically when the text file is saved.
 
 * Prerequisites
 
@@ -14,32 +13,32 @@ Wallpaper Updater is a Python script that reads text from a file and adds the te
 
 2. Clone this repository to your local machine:
 
-   #+BEGIN_SRC sh
-   git clone https://github.com/<your_username>/wallpaper-updater.git
-   #+END_SRC
+#+BEGIN_SRC sh
+git clone https://github.com/utsavdarlami/wally.git
+#+END_SRC
 
 3. Navigate to the `wallpaper-updater` directory:
 
-   #+BEGIN_SRC sh
-   cd wallpaper-updater
-   #+END_SRC
+#+BEGIN_SRC sh
+cd wallpaper-updater
+#+END_SRC
 
 4. Install the package using pip from requirements.txt:
 
-   #+BEGIN_SRC sh
-   pip install -r requirements.txt 
-   #+END_SRC
+#+BEGIN_SRC sh
+pip install -r requirements.txt 
+#+END_SRC
 
 
 5. Edit the `config.ini` file to specify the path to the text file and the image file, and other settings as needed.
 
-6. If you want to run the script as a daemon service, copy the `wallpaper_updater.service` file to `/usr/local/lib/systemd/user/` and run the following commands:
+6. If you want to run the script as a daemon service, copy the `wallpaper_updater.service` file to `~/.config/systemd/user/` and run the following commands:
 
-   #+BEGIN_SRC sh
-   sudo systemctl daemon-reload
-   sudo systemctl start wallpaper_updater
-   sudo systemctl enable wallpaper_updater
-   #+END_SRC
+#+BEGIN_SRC sh
+systemctl --user daemon-reload
+systemctl --user start wallpaper_updater.service
+systemctl --user enable wallpaper_updater.service
+#+END_SRC
 
 * Usage
 
