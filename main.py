@@ -28,7 +28,7 @@ class WallpaperUpdater(FileSystemEventHandler):
         self.font_type = font_type
         self.font_size = font_size
         self.font_color = font_color
-        self.start_pos = (-100, -100)
+        self.start_pos = (0, 0)
         if dark_mode:
             self.command = (
                 f"gsettings set org.gnome.desktop.background picture-uri-dark"
@@ -49,7 +49,7 @@ class WallpaperUpdater(FileSystemEventHandler):
         )  # choose a font and font size
         text_size = draw.textbbox(self.start_pos, text=text, font=font)
         text_position = (
-            int((image_size[0] - text_size[0]) * 0.1),
+            int((image_size[0] - text_size[0]) * 0.3),
             int((image_size[1] - text_size[1]) * 0.1),
         )  # center the text
         # logger.info(text_size)
