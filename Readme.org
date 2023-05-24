@@ -9,6 +9,11 @@ At the moment, I use `grepy` to fetch five GRE words each day and save them in t
 
 [[./assets/7mzd1v.jpg]]
 
+* Note 
+
+This project was created with the help of ChatGPT, a language model trained by OpenAI.
+Even this Readme.
+
 * Prerequisites
 
 - Python 3.10.1
@@ -69,7 +74,3 @@ The `config.ini` file contains the following settings:
 
 You can customize these settings to your liking.
 
-* Acknowledgments
-
-This project was created with the help of ChatGPT, a language model trained by OpenAI.
-Even this Readme.

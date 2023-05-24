@@ -1,5 +1,5 @@
-libertine::someone unrestrained by morality or convention
-plaudit::Enthusiastic approval or praise
 stigma::Mark of disgrace or inferiority
+plaudit::Enthusiastic approval or praise
+libertine::someone unrestrained by morality or convention
 garner::to gather and save; to store up
 urge::A strong and difficult to control wish
