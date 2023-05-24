@@ -7,6 +7,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from loguru import logger
 import configparser
+from grepy.gre2 import get_words_only
 
 
 class WallpaperUpdater(FileSystemEventHandler):
@@ -88,6 +89,10 @@ if __name__ == "__main__":
     font_size = config.getint("Settings", "font_size")
     font_color = config.get("Settings", "font_color")
     text_file_path = os.path.join(base_path, text_file)
+    wmap = get_words_only(n=5)
+    with open(text_file_path, "w") as f:
+        for word in wmap:
+            f.write(f"{word}::{wmap[word]}\n")
     image_path = os.path.join(base_path, image_file)
     font_file_path = os.path.join(base_path, font_file)
     # initial update of the wallpaper
