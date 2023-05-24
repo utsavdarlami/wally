@@ -2,6 +2,13 @@
 
 wally is a Python script that reads text from a file and adds the text to an image. The resulting image is then set as the wallpaper. The script can be run as a daemon service, so that the wallpaper is updated automatically when the text file is saved.
 
+
+At the moment, I use `grepy` to fetch five GRE words each day and save them in the `words.txt` file. This file is then used to show the text on the wallpaper.
+
+[[https://github.com/NISH1001/grepy][grepy]] A very simple python script to get (GRE) word for today
+
+[[./assets/7mzd1v.jpg]]
+
 * Prerequisites
 
 - Python 3.10.1
@@ -32,7 +39,7 @@ pip install -r requirements.txt
 
 5. Edit the `config.ini` file to specify the path to the text file and the image file, and other settings as needed.
 
-6. If you want to run the script as a daemon service, copy the `wallpaper_updater.service` file to `~/.config/systemd/user/` and run the following commands:
+6. If you want to run the script as a daemon service, copy the `wallpaper_updater.service`(inside `assets`) file to `~/.config/systemd/user/` and run the following commands:
 
 #+BEGIN_SRC sh
 systemctl --user daemon-reload
