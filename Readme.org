@@ -2,6 +2,13 @@
 
 wally is a Python script that reads text from a file and adds the text to an image. The resulting image is then set as the wallpaper. The script can be run as a daemon service, so that the wallpaper is updated automatically when the text file is saved.
 
+Something like this
+
+
+#+CAPTION:  Sample wallpaper 
+#+attr_html: :width 700 :height 400 :target /blogs
+[[./assets/sample.jpg]]
+
 
 At the moment, I use `grepy` to fetch five GRE words each day and save them in the `words.txt` file. This file is then used to show the text on the wallpaper.
 
